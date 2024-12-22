@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- Form View for Student -->
+    <record model="ir.ui.view" id="view_student_form">
+      <field name="name">student.form</field>
+      <field name="model">studentmanagement.student</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="lastName"/>
+            <field name="firstName"/>
+            <field name="dateOfBirth"/>
+            <field name="email"/>
+            <field name="cin"/>
+            <field name="cne"/>
+            <field name="phoneNumber"/>
+            <field name="paid"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- Tree View for Student -->
+    <record model="ir.ui.view" id="view_student_tree">
+      <field name="name">student.tree</field>
+      <field name="model">studentmanagement.student</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="lastName"/>
+          <field name="firstName"/>
+          <field name="cin"/>
+          <field name="cne"/>
+          <field name="email"/>
+          <field name="paid"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Action for the Tree View -->
+    <record model="ir.actions.act_window" id="action_student_tree">
+      <field name="name">Registration of Students</field>
+      <field name="res_model">studentmanagement.student</field>
+      <field name="view_mode">tree,form</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          Create a new Student
+        </p>
+      </field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem id="student_menu" name="Student Management" sequence="0"/>
+    <menuitem id="student_management_menu" parent="student_menu" name="Student" action="action_student_tree"/>
+    <record id="action_student" model="ir.actions.act_window">
+      <field name="name">student</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">studentmanagement.student</field>
+      <field name="view_mode">tree,kanban,form</field>
+      <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+              Create a new Student
+          </p>
+      </field>
+    </record>
+  </data>
+</odoo>
